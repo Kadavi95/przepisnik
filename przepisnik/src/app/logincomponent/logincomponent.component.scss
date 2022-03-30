@@ -23,6 +23,35 @@ main {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      .logInButton {
+        width: 100px;
+        height: 32px;
+        font-size: 16px;
+        border-radius: 5px;
+        color: #edeee9;
+        background-color: #c7ab10;
+        border: none;
+        cursor: pointer;
+        transition: .35s all ease-in-out;
+        &:hover {
+          -webkit-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+          -moz-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+          box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+        }
+        &:disabled {
+          width: 100px;
+          height: 32px;
+          font-size: 16px;
+          border-radius: 5px;
+          color: #edeee9;
+          background-color: #f5f5f5;
+          border: none;
+          cursor: pointer;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+        }
+      }
       label {
         margin-top: 2rem;
         margin-bottom: 2rem;
