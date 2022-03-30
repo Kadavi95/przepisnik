@@ -8,29 +8,39 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-
   section {
     background-color: #edeee9;
     width: 60%;
     height: 90%;
     border-radius: 10px;
-    // box-shadow: rbg(119, 119, 125 / 60%) 0px 0px 8px 0px;
     -webkit-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
     form {
       height: 100%;
       width: 100%;
-      background-color: aquamarine;
       display: flex;
       flex-direction: column;
-      justify-items: stretch;
+      justify-content: center;
       align-items: center;
-
-      div {
-        height: calc(100% / 3);
+      label {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
         width: 100%;
+        background-color: goldenrod;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input {
+          border: none;
+          text-align: center;
+          padding: 0 0;
+          &:focus {
 
+          }
+          &:active {
+          }
+        }
       }
     }
   }

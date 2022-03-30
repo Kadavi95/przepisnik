@@ -1,19 +1,21 @@
 <main>
   <section>
-    <form *>
+    <form [formGroup]="form" (ngSubmit)="sendData()">
 
-        <label for="">
-          <input placeholder="nickname" type="text">
+        <label >
+          <input formControlName="name" placeholder="nickname" type="text">
         </label>
 
-        <label for="">
+        <label >
           <input placeholder="password" type="passowrd">
         </label>
 
-        <label for="">
+
           <button type="submit">Sprawdz</button>
-        </label>
+
 
     </form>
+
+    {{form.value | json}}
   </section>
 </main>
