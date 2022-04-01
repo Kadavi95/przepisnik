@@ -7,11 +7,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from '@angular/common/http';
 import { LogincomponentComponent } from './logincomponent/logincomponent.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogincomponentComponent
+    LogincomponentComponent,
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

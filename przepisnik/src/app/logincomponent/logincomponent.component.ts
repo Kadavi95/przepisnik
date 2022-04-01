@@ -1,28 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiserviceService } from '../apiservice.service';
-
-interface myDataValues {
-  name: string;
-  password: string;
-}
-type singleUser = {
-  id: number;
-  nickname: string;
-  password: string;
-  class: string;
-};
+import { AuthService } from '../auth-service.service';
 
 @Component({
   selector: 'app-logincomponent',
   templateUrl: './logincomponent.component.html',
   styleUrls: ['./logincomponent.component.scss'],
 })
+
+
 export class LogincomponentComponent implements OnInit {
   form!: FormGroup;
   constructor(
-    private apiService: ApiserviceService,
+    private authService: AuthService,
     private formBuild: FormBuilder,
     private router: Router
   ) {}
@@ -46,24 +37,10 @@ export class LogincomponentComponent implements OnInit {
       alert('blad w formularzu czekaj');
       return;
     } else {
-      // this.apiService.getUser(this.form.value.name, this.form.value.password);
-      // this.apiService
-      //   .getHeroes(this.form.value.name, this.form.value.password)
+      this.authService.login(this.form.value.name, this.form.value.password).subscribe(() => {this.router.navigate(['dashboard'])});
 
-      //   .subscribe((res) => console.log(res));
-
-        this.apiService.getUsers().subscribe((response) => {
-            response.find((item: singleUser) => {
-              const primaryCondition = item.nickname.toUpperCase() === this.form.value.name.toUpperCase();
-              const secondaryCondition =  item.password.toUpperCase() === this.form.value.password.toUpperCase()
-              if(primaryCondition && secondaryCondition){
-                this.router.navigate(['./home'])
-
-              } else {
-                console.log("error");
-              }
-            })
-        })
     }
   }
 }
+
+
