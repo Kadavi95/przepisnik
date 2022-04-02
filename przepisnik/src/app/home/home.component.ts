@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth-service.service';
+import { ApiserviceService } from '../apiservice.service';
+import { Recipe } from '../types';
+
 
 @Component({
   selector: 'app-home',
@@ -7,11 +9,12 @@ import { AuthService } from '../auth-service.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public recipes: Recipe[] = []
 
-  constructor(private authService: AuthService) { }
+  constructor(private apiService: ApiserviceService) { }
 
-  ngOnInit(): void {
-    console.log(this.authService)
+  ngOnInit() {
+    this.apiService.getAllRecipes().subscribe(val => this.recipes = val)
   }
 
 }

@@ -1,0 +1,34 @@
+.home_background{
+  background-color: #edeee9;
+  width: 100%;
+  height: 1500px;
+  animation: slide 1.5s linear 1;
+  overflow: scroll;
+
+  @keyframes slide {
+    0% {
+      background-color: #ffffff;
+    }
+    50% {
+      background-color: #f2f2f0;
+    }
+    100% {
+      background-color: #edeee9;
+    }
+
+  }
+  .home_search-Container{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home_recipeCard-Container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
+  }
+}

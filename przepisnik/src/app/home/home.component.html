@@ -1,1 +1,11 @@
-<p>home works!</p>
+
+<app-header></app-header>
+<section class="home_background">
+  <div class="home_search-Container">
+    <input placeholder="searchRecipe"type="text">
+  </div>
+  <div class="home_recipeCard-Container">
+    <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-card>
+  </div>
+
+</section>

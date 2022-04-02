@@ -1,0 +1,13 @@
+
+
+<div class="modal">
+  <a routerLink="" class="modal_anchor-home"><fa-icon class="iconStop" [icon]="faStopCircle"></fa-icon></a>
+  <div class="modal_data-container">
+    <h5 class="modal_title" *ngIf="recipe">{{recipe.name}}</h5>
+    <img class="modal_image" src={{recipe.imgUrl}} alt={{recipe.name}}>
+    <ul class="modal_ingredients-List">
+      <li *ngFor="let ingredient of recipe.ingriedients" class="modal_ingredients-item">{{ingredient.name}} w ilości {{ingredient.value}}</li>
+    </ul>
+  </div>
+</div>
+

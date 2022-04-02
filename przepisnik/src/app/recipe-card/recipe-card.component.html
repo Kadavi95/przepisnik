@@ -1,0 +1,18 @@
+<div class="recipe_card">
+  <h3 class="recipe_card-title">{{recipe.name}}</h3>
+  <div class="recipe_card-imageContainer">
+    <img class="recipe_card-image" src={{recipe.imgUrl}} alt={{recipe.name}}>
+  </div>
+  <div class="recipe_card-descriptionContainer">
+    <p class="recipe_card-description">{{recipe.description}}</p>
+  </div>
+  <!-- <div class="recipe_card-ingredientsContainer">
+    <p class="recipe_card-ingredient">{{recipe.ingriedients}}</p>
+  </div> -->
+  <a [routerLink]="'recipes/'+recipe.id.toString()" class="recipe_card-button">Więcej</a>
+
+</div>
+
+
+recipes/'+recipe.id.toString()
+<!-- <p>{{recipe | json}}</p> -->

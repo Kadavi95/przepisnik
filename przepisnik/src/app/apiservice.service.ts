@@ -1,30 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, pipe, observable, Observable } from 'rxjs';
-import { map, tap, filter } from 'rxjs/operators';
-
-// type singleUser = {
-//   id: number;
-//   nickname: string;
-//   password: string;
-//   class: string;
-// };
-// type loggedUser = {
-//   nickname: string;
-//   class: string
-// }
+import { Recipe, Ingredients } from './types';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class ApiserviceService {
   constructor(private httpClient: HttpClient) {}
 
-  private usersUrl = 'http://localhost:3000/users';
+  private recipesURL = 'http://localhost:3000/recipes';
 
-  login(nickname: string, password: string){
-    const searchURL = `${this.usersUrl}?nickname=${nickname}&password=${password}`
-    return this.httpClient.get(searchURL);
-
+  public getAllRecipes(){
+    return this.httpClient.get<Recipe[]>(this.recipesURL)
+  }
+  public getSpecificRecipe(id: number){
+    return this.httpClient.get<Recipe[]>(`${this.recipesURL}?id=${id}`)
   }
 }

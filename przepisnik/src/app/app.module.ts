@@ -8,14 +8,18 @@ import {HttpClientModule} from '@angular/common/http';
 import { LogincomponentComponent } from './logincomponent/logincomponent.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import { ModalrecipeComponent } from './modalrecipe/modalrecipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogincomponentComponent,
     HomeComponent,
-    DashboardComponent
+    HeaderComponent,
+    RecipeCardComponent,
+    ModalrecipeComponent
   ],
   imports: [
     BrowserModule,

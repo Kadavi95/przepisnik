@@ -22,6 +22,20 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ) {
+    return this.authService.authorized$.pipe(
+      take(1),
+      map( (user)=> {
+        return !!user
+      }),
+      tap((canActivate) => {
+        if(!canActivate){
+          this.router.navigate(['login'])
+        }
+      })
+    )
+  }
+}
+
 
     // const abc = this.authService.authorized$
     //   .pipe(
@@ -38,20 +52,6 @@ export class AuthGuard implements CanActivate {
       //   console.log(f, 'abc w gardzie');
       // });
     // return false;
-    return this.authService.authorized$.pipe(
-      take(1),
-      map( (user)=> {
-        return !!user
-      }),
-      tap((canActivate) => {
-        if(!canActivate){
-          this.router.navigate(['login'])
-        }
-      })
-    )
-  }
-}
-
 // const truthy = this.authService.authorizedValue();
 // if(truthy === true){
 //   console.log('asdas');

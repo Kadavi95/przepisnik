@@ -3,13 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { User } from './types';
 
-type User = {
-  id: number;
-  nickname: string;
-  password: string;
-  class: string;
-};
 
 @Injectable({
   providedIn: 'root',
@@ -20,30 +15,6 @@ export class AuthService {
   get authorized$() {
     return this.authorized.asObservable();
   }
-
-  a () {
-    this.authorized.getValue()
-  }
-  // authorizedCheck() {
-  //   if (this.authorized.getValue() === null) {
-  //     console.log(this.authorized.getValue(), 'jestem nullem');
-  //     return false;
-  //   } else {
-  //     console.log(this.authorized.getValue(), 'nie jestem nullem');
-  //     return true;
-  //   }
-  // }
-
-  // public authorized!: User | null
-  // public authorizedValue() {
-  //   if(this.authorized !== null && this.authorized !== undefined){
-  //     console.log(this.authorized);
-  //     console.log("fuckedUo");
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
 
   constructor(private router: Router, private httpClient: HttpClient) {}
   private usersUrl: string = 'http://localhost:3000/users';
@@ -68,6 +39,34 @@ export class AuthService {
     console.log('logout');
   }
 }
+
+// type User = {
+//   id: number;
+//   nickname: string;
+//   password: string;
+//   class: string;
+// };
+
+  // authorizedCheck() {
+  //   if (this.authorized.getValue() === null) {
+  //     console.log(this.authorized.getValue(), 'jestem nullem');
+  //     return false;
+  //   } else {
+  //     console.log(this.authorized.getValue(), 'nie jestem nullem');
+  //     return true;
+  //   }
+  // }
+
+  // public authorized!: User | null
+  // public authorizedValue() {
+  //   if(this.authorized !== null && this.authorized !== undefined){
+  //     console.log(this.authorized);
+  //     console.log("fuckedUo");
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
 
 // private authorized!: BehaviorSubject<boolean>;
 //   get authorized$() {
@@ -105,3 +104,4 @@ export class AuthService {
 // localStorage.setItem('user', JSON.stringify({ role }));
 // this.authorized.next(true);
 // })
+

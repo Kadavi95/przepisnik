@@ -37,7 +37,7 @@ export class LogincomponentComponent implements OnInit {
       alert('blad w formularzu czekaj');
       return;
     } else {
-      this.authService.login(this.form.value.name, this.form.value.password).subscribe(() => {this.router.navigate(['dashboard'])});
+      this.authService.login(this.form.value.name, this.form.value.password).subscribe(() => {this.router.navigate([''])});
 
     }
   }
