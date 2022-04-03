@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { ModalrecipeComponent } from './modalrecipe/modalrecipe.component';
+import { AutorComponent } from './autor/autor.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ModalrecipeComponent } from './modalrecipe/modalrecipe.component';
     HomeComponent,
     HeaderComponent,
     RecipeCardComponent,
-    ModalrecipeComponent
+    ModalrecipeComponent,
+    AutorComponent
   ],
   imports: [
     BrowserModule,

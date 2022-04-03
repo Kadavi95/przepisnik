@@ -2,7 +2,7 @@
 <app-header></app-header>
 <section class="home_background">
   <div class="home_search-Container">
-    <input placeholder="searchRecipe"type="text">
+    <input placeholder="searchRecipeByName"type="text" (input)="onSearch($event)">
   </div>
   <div class="home_recipeCard-Container">
     <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-card>

@@ -1,0 +1,30 @@
+.autor_component-container {
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+  align-items: center;
+
+  .autor_recipes-component {
+    border-radius: 10px;
+    background-color: #edeee9;
+    width: 45%;
+    height: 80%;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+  }
+
+  .autor_recipes-component {
+    border-radius: 10px;
+    background-color: #edeee9;
+    width: 45%;
+    height: 80%;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+  }
+}

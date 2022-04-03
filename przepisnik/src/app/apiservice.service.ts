@@ -17,4 +17,7 @@ export class ApiserviceService {
   public getSpecificRecipe(id: number){
     return this.httpClient.get<Recipe[]>(`${this.recipesURL}?id=${id}`)
   }
+  public getRecipeByname(name: string){
+    return this.httpClient.get<Recipe[]>(`${this.recipesURL}?nameShortened=${name}`)
+  }
 }
