@@ -26,8 +26,13 @@ export class AutorComponent implements OnInit {
         Validators.required,
         Validators.minLength(15),
         Validators.maxLength(150),
-      ]
-      )
+      ]),
+      ingriedients: this.formBuild.array([
+        this.formBuild.group({
+          nameOfIngredient: this.formBuild.control('',),
+          valueOfIngredient: this.formBuild.control(''),
+        })
+      ])
     })
   }
 }

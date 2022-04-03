@@ -27,6 +27,7 @@ export class ModalrecipeComponent implements OnInit {
         .pipe()
         .subscribe(val => {
           this.recipe = val[0];
+          console.log(this.recipe);
         });
     });
   }
