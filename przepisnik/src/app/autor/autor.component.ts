@@ -61,9 +61,16 @@ export class AutorComponent implements OnInit {
   }
 
   sendRecipe(): void {
-    const {name, description, imgUrl, ingriedients} = this.form.value;
+    let {name, description, imgUrl, ingriedients} = this.form.value;
     const nameShortened = name.replace(/\s/g, '').toLowerCase();
     const owner = "Khan";
+    const [a, b] = ingriedients;
+    console.log(a,b);
+    const rating = 5
+    const ingredientsArray = [
+      {nameofingredient: a,
+        valueofingredient: b}
+    ,]
     const id = this.lenghtOfRecipesArray + 1;
     const objectToSend = {
       id: id,
@@ -72,7 +79,8 @@ export class AutorComponent implements OnInit {
       nameShortened: nameShortened,
       description: description,
       imgUrl: imgUrl,
-      ingriedients: ingriedients
+      ingriedients: ingredientsArray,
+      rating: rating
     }
     this.checkLenghtOfRecipesArray()
     this.apiService.addSignleRecipe(objectToSend).subscribe()
