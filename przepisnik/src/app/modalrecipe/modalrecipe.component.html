@@ -6,7 +6,7 @@
     <h5 class="modal_title" *ngIf="recipe">{{recipe.name}}</h5>
     <img class="modal_image" src={{recipe.imgUrl}} alt={{recipe.name}}>
     <ul class="modal_ingredients-List">
-      <li *ngFor="let ingredient of recipe.ingriedients" class="modal_ingredients-item">{{ingredient.nameingredient}} w ilości {{ingredient}}</li>
+      <li *ngFor="let ingredient of recipe.ingriedients" class="modal_ingredients-item">{{ingredient.nameofingredient}} w iloci {{ingredient.valueofingredient}}</li>
     </ul>
   </div>
 </div>

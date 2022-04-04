@@ -5,25 +5,23 @@
   </div>
 
   <div class="autor_recipes-component">
-    <form>
-      <label for="">
-        <input placeholder="Wpisz nazwę produktu" type="text">
+    <form class="autor_recipes-form" [formGroup]="form" (ngSubmit)="sendRecipe()">
+      <label>
+        <input formControlName="name" placeholder="Wpisz nazwę produktu" type="text">
       </label>
-      <label for="">
-        <input placeholder="Wpisz opis produktu" type="text">
+        <textarea formControlName="description" placeholder="Uzupełnij opis" name="" id="" cols="5" rows="5"></textarea>
+      <label>
+        <input formControlName="imgUrl" placeholder="Podaj link do zdjęcia" type="text">
       </label>
-      <label for="">
-        <input placeholder="Podaj link do zdjęcia #edeee9" type="text">
-      </label>
-      <label for="">
-        <input type="text">
-      </label>
-      <div class="ingredients_container">
-
+      <div formArrayName="ingriedients" class="ingredients_container">
+          <label *ngFor="let ingredient of ingredientsFormArray.controls; let index=index">
+            <input [formControlName]="index" placeholder="Wpisz nazwę składnika">
+          </label>
       </div>
-      <button class="autor_recipes-button"></button>
+      <button [disabled]="!form.valid" class="autor_recipes-button">Wyślij</button>
     </form>
 
   </div>
 
+  {{form.value | json}}
 </main>

@@ -11,6 +11,10 @@ export class ApiserviceService {
 
   private recipesURL = 'http://localhost:3000/recipes';
 
+  public addSignleRecipe(recipe: Recipe){
+    return this.httpClient.post(this.recipesURL, recipe)
+  }
+
   public getAllRecipes(){
     return this.httpClient.get<Recipe[]>(this.recipesURL)
   }

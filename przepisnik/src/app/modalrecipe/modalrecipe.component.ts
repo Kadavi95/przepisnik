@@ -19,6 +19,7 @@ export class ModalrecipeComponent implements OnInit {
     private activeRoute: ActivatedRoute
   ) {}
 
+ 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params: Params) => {
       this.id = +params['id'];

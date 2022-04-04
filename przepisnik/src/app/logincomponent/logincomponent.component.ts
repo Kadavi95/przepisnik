@@ -9,7 +9,6 @@ import { AuthService } from '../auth-service.service';
   styleUrls: ['./logincomponent.component.scss'],
 })
 
-
 export class LogincomponentComponent implements OnInit {
   form!: FormGroup;
   constructor(
@@ -37,7 +36,7 @@ export class LogincomponentComponent implements OnInit {
       alert('blad w formularzu czekaj');
       return;
     } else {
-      this.authService.login(this.form.value.name, this.form.value.password).subscribe(() => {this.router.navigate([''])});
+      this.authService.login(this.form.value.name, this.form.value.password).subscribe(() => {this.router.navigate(['autor'])});
 
     }
   }
