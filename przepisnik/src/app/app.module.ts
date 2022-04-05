@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { ModalrecipeComponent } from './modalrecipe/modalrecipe.component';
 import { AutorComponent } from './autor/autor.component';
+import { RecipeSquareComponent } from './recipe-square/recipe-square.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AutorComponent } from './autor/autor.component';
     HeaderComponent,
     RecipeCardComponent,
     ModalrecipeComponent,
-    AutorComponent
+    AutorComponent,
+    RecipeSquareComponent
   ],
   imports: [
     BrowserModule,

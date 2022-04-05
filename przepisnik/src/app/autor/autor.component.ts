@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { tap } from 'rxjs';
 import { ApiserviceService } from '../apiservice.service';
+import { Recipe } from '../types';
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+
 
 
 @Component({
@@ -12,8 +15,11 @@ import { ApiserviceService } from '../apiservice.service';
 export class AutorComponent implements OnInit {
   form!: FormGroup;
   lenghtOfRecipesArray!: number;
+  public recipes!: Recipe[];
+  faCircleXmark = faCircleXmark
 
   constructor(private formBuild: FormBuilder, private apiService: ApiserviceService) {}
+
 
   get ingredientsFormArray() {
     return this.form.controls['ingriedients'] as FormArray;
@@ -29,14 +35,21 @@ export class AutorComponent implements OnInit {
     ).subscribe()
   }
 
+
   ngOnInit() {
-    this.apiService.getAllRecipes().pipe(
-      tap(
-        (value) => {
-          this.lenghtOfRecipesArray = value.length
-        }
-      )
-    ).subscribe()
+    console.log('ngOninit');
+    this.apiService.refreshRecipes$.subscribe(() => {
+      this.getAllRecipes()
+    })
+    this.getAllRecipes();
+    // this.apiService.getAllRecipes().pipe(
+    //   tap(
+    //     (value) => {
+    //       this.recipes = value
+    //       this.lenghtOfRecipesArray = value.length
+    //     }
+    //   )
+    // ).subscribe()
     this.form = this.formBuild.group({
       name: this.formBuild.control('', [
         Validators.required,
@@ -46,7 +59,7 @@ export class AutorComponent implements OnInit {
       description: this.formBuild.control('', [
         Validators.required,
         Validators.minLength(10),
-        Validators.maxLength(50),
+        Validators.maxLength(200),
       ]),
       imgUrl: this.formBuild.control('', [
         Validators.required,
@@ -60,12 +73,27 @@ export class AutorComponent implements OnInit {
     });
   }
 
+  showValues(id: number){
+    console.log('z ID', id);
+    this.apiService.deleteRecipeById(id).subscribe();
+    this.ngOnInit();
+
+  }
+  private getAllRecipes(){
+    this.apiService.getAllRecipes().pipe(
+      tap(
+        (value) => {
+          this.recipes = value
+          this.lenghtOfRecipesArray = value.length
+        }
+      )
+    ).subscribe()
+  }
   sendRecipe(): void {
     let {name, description, imgUrl, ingriedients} = this.form.value;
     const nameShortened = name.replace(/\s/g, '').toLowerCase();
     const owner = "Khan";
     const [a, b] = ingriedients;
-    console.log(a,b);
     const rating = 5
     const ingredientsArray = [
       {nameofingredient: a,
@@ -82,8 +110,8 @@ export class AutorComponent implements OnInit {
       ingriedients: ingredientsArray,
       rating: rating
     }
-    this.checkLenghtOfRecipesArray()
-    this.apiService.addSignleRecipe(objectToSend).subscribe()
+    this.checkLenghtOfRecipesArray();
+    this.apiService.addSignleRecipe(objectToSend).subscribe();
 
 
   }

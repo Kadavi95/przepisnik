@@ -1,10 +1,17 @@
 <app-header></app-header>
 <main class="autor_component-container">
-  <div class="autor_recipes-component">
-\
+  <div class="autor_recipes-items">
+    <app-recipe-square *ngFor="let recipe of recipes" [recipe]="recipe" (id)="showValues($event)" ></app-recipe-square>
+    <!-- <div class="recipesquare-container" *ngIf="recipes" *ngFor="let recipe of recipes">
+      <a class="recipesquare-button"><fa-icon class="recipesquare-icon" [icon]="faCircleXmark"></fa-icon></a>
+      <img class="recipesquare-image" src="" alt="">
+      <h6 class="recipesquare-title"></h6>
+    </div> -->
+    <!-- <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-card> -->
+
   </div>
 
-  <div class="autor_recipes-component">
+  <div class="autor_recipes-form_container">
     <form class="autor_recipes-form" [formGroup]="form" (ngSubmit)="sendRecipe()">
       <label>
         <input formControlName="name" placeholder="Wpisz nazwę produktu" type="text">

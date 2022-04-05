@@ -8,7 +8,7 @@
   gap: 10px;
   align-items: center;
 
-  .autor_recipes-component {
+  .autor_recipes-items {
     border-radius: 10px;
     background-color: #edeee9;
     width: 45%;
@@ -16,9 +16,16 @@
     -webkit-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow: scroll;
   }
 
-  .autor_recipes-component {
+  .autor_recipes-form_container {
     border-radius: 10px;
     background-color: #edeee9;
     width: 45%;
