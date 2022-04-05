@@ -13,6 +13,7 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { ModalrecipeComponent } from './modalrecipe/modalrecipe.component';
 import { AutorComponent } from './autor/autor.component';
 import { RecipeSquareComponent } from './recipe-square/recipe-square.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RecipeSquareComponent } from './recipe-square/recipe-square.component';
     RecipeCardComponent,
     ModalrecipeComponent,
     AutorComponent,
-    RecipeSquareComponent
+    RecipeSquareComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -73,7 +73,7 @@ export class AutorComponent implements OnInit {
     });
   }
 
-  showValues(id: number){
+  deleteItem(id: number){
     console.log('z ID', id);
     this.apiService.deleteRecipeById(id).subscribe();
     this.ngOnInit();

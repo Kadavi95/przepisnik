@@ -35,8 +35,9 @@ export class AuthService {
       )
 
   }
-  public logout(): void {
-    console.log('logout');
+  public logout() {
+    this.authorized.next(null);
+    
   }
 }
 

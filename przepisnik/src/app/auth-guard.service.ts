@@ -27,6 +27,9 @@ export class AuthGuard implements CanActivate {
       map( (user)=> {
         return !!user
       }),
+      tap((value) => {
+        console.log(`sprawdzam jakie ${value} w tapie. `)
+      }),
       tap((canActivate) => {
         if(!canActivate){
           this.router.navigate(['login'])
@@ -36,26 +39,3 @@ export class AuthGuard implements CanActivate {
   }
 }
 
-
-    // const abc = this.authService.authorized$
-    //   .pipe(
-    //     tap((v) => {
-    //       if (v) {
-    //         console.log(v);
-    //         return true;
-    //       } else {
-    //         return false;
-    //       }
-    //     })
-    //   )
-      // .subscribe((f) => {
-      //   console.log(f, 'abc w gardzie');
-      // });
-    // return false;
-// const truthy = this.authService.authorizedValue();
-// if(truthy === true){
-//   console.log('asdas');
-//   return true
-// } else {
-//   return false
-// }
