@@ -10,9 +10,11 @@ import { ModalrecipeComponent } from './modalrecipe/modalrecipe.component';
 const routes: Routes = [
   // {path: "", redirectTo: "login", pathMatch: 'full'},
   {path: "login", component: LogincomponentComponent },
+
   {path: "", component: HomeComponent, canActivate: [AuthGuard]},
   {path: "recipes/:id", component: ModalrecipeComponent},
-  {path: "autor", component: AutorComponent, canActivate: [AuthGuard]}
+  {path: "autor", component: AutorComponent, canActivate: [AuthGuard]},
+  {path: "**", redirectTo: 'login'},
 
 
 ];
