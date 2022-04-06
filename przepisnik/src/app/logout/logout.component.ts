@@ -11,6 +11,7 @@ export class LogoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("last standing version");
   }
 
   faPerson = faPerson
