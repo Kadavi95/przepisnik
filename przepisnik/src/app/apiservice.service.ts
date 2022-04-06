@@ -12,16 +12,16 @@ export class ApiserviceService {
 
   private recipesURL = 'http://localhost:3000/recipes';
   private _refreshRecipes$ = new Subject<void>();
-  public _deletedRecipe$ = new Subject<any>();
+  public _deletedRecipe$ = new Subject<number>();
 
   get refreshRecipes$ (){
     return this._refreshRecipes$
   }
 
-
-
   public deleteRecipeById(id: number){
-    return this.httpClient.delete(`${this.recipesURL}/${id}`)
+    console.log("WYWOŁANO METODĘ DELETE");
+    return this.httpClient.delete(`${this.recipesURL}/${id}`).subscribe()
+
   }
 
   public addSignleRecipe(recipe: Recipe){

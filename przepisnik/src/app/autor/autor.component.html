@@ -1,7 +1,7 @@
 <app-header></app-header>
 <main class="autor_component-container">
   <div class="autor_recipes-items">
-    <app-recipe-square *ngFor="let recipe of recipes" [recipe]="recipe" (id)="deleteItem($event)" ></app-recipe-square>
+    <app-recipe-square *ngFor="let recipe of recipes" [recipe]="recipe" ></app-recipe-square>
     <!-- <div class="recipesquare-container" *ngIf="recipes" *ngFor="let recipe of recipes">
       <a class="recipesquare-button"><fa-icon class="recipesquare-icon" [icon]="faCircleXmark"></fa-icon></a>
       <img class="recipesquare-image" src="" alt="">
@@ -32,3 +32,8 @@
 
   {{form.value | json}}
 </main>
+
+
+
+
+<!-- (id)="deleteItem($event) -->

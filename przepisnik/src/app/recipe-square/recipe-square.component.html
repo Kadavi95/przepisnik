@@ -1,5 +1,5 @@
 <div class="recipesquare-container">
-  <a class="recipesquare-button" (click)="checkId(recipe.id)"><fa-icon class="recipesquare-icon" [icon]="faCircleXmark"></fa-icon></a>
+  <a class="recipesquare-button" (click)="deleteRecipe(recipe.id)"><fa-icon class="recipesquare-icon" [icon]="faCircleXmark"></fa-icon></a>
   <img class="recipesquare-image" src={{recipe.imgUrl}} alt="{{recipe.name}}">
   <h6 class="recipesquare-title">{{recipe.name}}</h6>
 </div>

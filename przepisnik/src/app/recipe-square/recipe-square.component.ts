@@ -13,7 +13,7 @@ import { Recipe } from '../types';
 
 export class RecipeSquareComponent implements OnInit {
   @Input() recipe!: Recipe;
-  @Output() id = new EventEmitter<number>();
+  // @Output() id = new EventEmitter<number>();
 
   constructor(private apiService: ApiserviceService) { }
 
@@ -21,9 +21,9 @@ export class RecipeSquareComponent implements OnInit {
   }
   faCircleXmark = faCircleXmark;
 
-  checkId(id: number){
-    console.log(id);
-    this.id.emit(id)
-    console.log(this.id.emit(id));
+  deleteRecipe(id: number){
+    console.log("deleteRecipe", "id:" + id);
+    this.apiService._deletedRecipe$.next(id);
+
   }
 }

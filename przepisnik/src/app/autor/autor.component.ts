@@ -5,13 +5,12 @@ import { ApiserviceService } from '../apiservice.service';
 import { Recipe } from '../types';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
-
-
 @Component({
   selector: 'app-autor',
   templateUrl: './autor.component.html',
   styleUrls: ['./autor.component.scss'],
 })
+
 export class AutorComponent implements OnInit {
   form!: FormGroup;
   lenghtOfRecipesArray!: number;
@@ -20,36 +19,24 @@ export class AutorComponent implements OnInit {
 
   constructor(private formBuild: FormBuilder, private apiService: ApiserviceService) {}
 
-
   get ingredientsFormArray() {
     return this.form.controls['ingriedients'] as FormArray;
   }
 
   checkLenghtOfRecipesArray(){
-    this.apiService.getAllRecipes().pipe(
-      tap(
-        (value) => {
-          console.log(value.length)
-        }
-      )
-    ).subscribe()
+    this.apiService.getAllRecipes().subscribe()
   }
 
-
   ngOnInit() {
-    console.log('ngOninit');
+    this.apiService._deletedRecipe$.subscribe(val => {
+      this.apiService.deleteRecipeById(val);
+      this.getAllRecipes()
+    })
     this.apiService.refreshRecipes$.subscribe(() => {
       this.getAllRecipes()
     })
     this.getAllRecipes();
-    // this.apiService.getAllRecipes().pipe(
-    //   tap(
-    //     (value) => {
-    //       this.recipes = value
-    //       this.lenghtOfRecipesArray = value.length
-    //     }
-    //   )
-    // ).subscribe()
+
     this.form = this.formBuild.group({
       name: this.formBuild.control('', [
         Validators.required,
@@ -73,12 +60,6 @@ export class AutorComponent implements OnInit {
     });
   }
 
-  deleteItem(id: number){
-    console.log('z ID', id);
-    this.apiService.deleteRecipeById(id).subscribe();
-    this.ngOnInit();
-
-  }
   private getAllRecipes(){
     this.apiService.getAllRecipes().pipe(
       tap(
